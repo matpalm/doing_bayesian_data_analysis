@@ -1,19 +1,18 @@
 # exercise 6.6
 
-normalise <- function(x) return(x / sum(x))
-
 # estimation grid
 width = 1/100 
 theta = seq(width/2, 1-width/2, width)
 
-# model priors
-model1.prior = normalise(theta ^ 2)
-model2.prior = normalise((1-theta) ^ 2)
-
 # likelihood
 z = 6  # num heads
 N = 8  # total num trials
-pDataGivenTheta = theta^z * (1-theta)^(N-z)
+pDataGivenTheta = theta ^ z * (1 - theta) ^ (N - z)
+
+# model priors
+normalise <- function(x) return(x / sum(x))
+model1.prior = normalise(theta ^ 2)
+model2.prior = normalise((1-theta) ^ 2)
 
 # prob of data under both
 model1.pData = sum(pDataGivenTheta * model1.prior)
