@@ -1,6 +1,6 @@
 ## doing bayesian data analysis
 
-working through doing bayesian data analysis. awesome book!
+working through <a href="http://www.indiana.edu/~kruschke/DoingBayesianDataAnalysis/">doing bayesian data analysis</a>. awesome book!
 
 ## code
 
