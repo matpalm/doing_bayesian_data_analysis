@@ -1,0 +1,8 @@
+model {
+  for (i in 1:nFlips) {
+    y[i] ~ dbern(theta)
+  }
+  theta ~ dbeta(priorA, priorB)
+  priorA <- 1
+  priorB <- 1
+}
