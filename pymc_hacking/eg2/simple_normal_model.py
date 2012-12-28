@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 from pymc import *
 
-mean = Uniform('mean', lower=0.0, upper=200.0)
+mean = Normal("mean", 0, 0.001)
 precision = Gamma('precision', alpha=0.1, beta=0.1)
 data = map(float, open('data', 'r').readlines())
 
