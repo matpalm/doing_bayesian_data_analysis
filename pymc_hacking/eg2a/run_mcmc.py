@@ -4,9 +4,9 @@ from pymc import MCMC
 from pymc.Matplot import plot
 
 # do posterior sampling
-M = MCMC(simple_normal_model)
-M.sample(iter=500)
-print(M.stats())
+m = MCMC(simple_normal_model)
+m.sample(iter=500)
+print(m.stats())
 
 # draw some pictures
-plot(M)
+plot(m)

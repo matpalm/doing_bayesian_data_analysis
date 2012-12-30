@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 from pymc import *
 
-mean = Normal("mean", 0, 0.001)
-precision = Gamma('precision', alpha=0.1, beta=0.1)
 data = map(float, open('data', 'r').readlines())
-
+mean = Uniform('mean', lower=min(data), upper=max(data))
+precision = Uniform('precision', lower=0.0001, upper=1.0)
 process = Normal('process', mu=mean, tau=precision, value=data, observed=True)

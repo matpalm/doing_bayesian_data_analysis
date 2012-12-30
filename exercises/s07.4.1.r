@@ -2,7 +2,7 @@
 
 library(rjags)
 
-flips = c(rep(1,700), rep(0,300))
+flips = c(rep(1,11), rep(0,3))
 
 model = jags.model('s07.4.1.model',
                    data=list(nFlips=length(flips), y=flips))

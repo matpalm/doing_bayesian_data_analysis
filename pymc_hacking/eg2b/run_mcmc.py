@@ -1,15 +1,16 @@
 #!/usr/bin/env python
-import two_normal_model
+import simple_normal_model
 from pymc import MCMC
 from pymc.Matplot import plot
 
 # do posterior sampling
-m = MCMC(two_normal_model)
-m.sample(iter=100000, burn=1000)
+m = MCMC(simple_normal_model)
+m.sample(iter=500)
 print(m.stats())
 
+# dump some traces
 import numpy
-for p in ['mean1', 'mean2', 'std_dev', 'theta']:
+for p in ['mean', 'std_dev']:
     numpy.savetxt("%s.trace" % p, m.trace(p)[:])
 
 # draw some pictures

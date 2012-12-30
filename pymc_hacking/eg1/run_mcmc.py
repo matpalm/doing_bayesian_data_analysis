@@ -4,8 +4,9 @@ from pymc import MCMC
 from pymc.Matplot import plot
 
 # do posterior sampling
-M = MCMC(simple_bernoulli_model)
-M.sample(iter=100)
+m = MCMC(simple_bernoulli_model)
+m.sample(iter=100)
+print(m.stats())
 
 # draw some pictures
-plot(M)
+plot(m)
