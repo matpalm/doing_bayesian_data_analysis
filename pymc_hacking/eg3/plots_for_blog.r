@@ -14,11 +14,21 @@ read_trace <- function(name) {
   return(df)
 }
 
-mean = read_trace("mean")
+mean1 = read_trace("mean1")
+mean2 = read_trace("mean2")
 sd = read_trace("std_dev")
-df = rbind(mean, sd)
+df = rbind(mean1, mean2, sd)
+png("traces.eg3.png", width = 600, height = 300)
+ggplot(df, aes(sample, value)) + 
+  geom_line(aes(color=type), size=1) + 
+  ylim(0, max(df$value))
+dev.off()
 
-png("traces.eg2.png", width = 600, height = 300)
-ggplot(df, aes(sample, value)) + geom_line(aes(color=type), size=2) + ylim(0, max(df$value))
+df = read_trace("theta")
+png("trace.theta.png", width = 600, height = 300)
+ggplot(df, aes(sample, value)) + 
+  geom_line(aes(color=type), size=1) + 
+  geom_hline(yintercept=0.33) +
+  ylim(0, max(df$value))
 dev.off()
 
