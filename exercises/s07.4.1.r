@@ -1,5 +1,5 @@
 # s7.4.1
-
+library(ggplot2)
 library(rjags)
 
 flips = c(rep(1,11), rep(0,3))
@@ -10,10 +10,10 @@ model = jags.model('s07.4.1.model',
 update(model, 2000)
 
 #s = jags.samples(model, c('theta'), 1000)
-s = coda.samples(model, c('theta'), 100)
+sample = coda.samples(model, c('theta'), 100)
 
 # plot
-df = data.frame(theta=as.vector(s[[1]]))
+df = as.data.frame(sample[[1]])
 ggplot(df, aes(theta)) + geom_density() + xlim(0, 1)
 
 # > str(s)
