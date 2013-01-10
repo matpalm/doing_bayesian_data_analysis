@@ -14,7 +14,7 @@ sample = coda.samples(model, c('mu', 'sigma'), 100)
 # plot
 df = as.data.frame(sample[[1]])
 mu_p = ggplot(df, aes(mu)) + geom_density() + opts(title="mu")
-sigma_p = ggplot(df, aes(tau)) + geom_density() + opts(title="sigma")
+sigma_p = ggplot(df, aes(sigma)) + geom_density() + opts(title="sigma")
 
 library(gridExtra)
 grid.arrange(orig_p, mu_p, sigma_p)
